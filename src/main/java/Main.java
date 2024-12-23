@@ -20,7 +20,10 @@ class  App {
             System.out.print("명령) ");
             String command = sc.nextLine();
 
-            if (command.equals("등록")) {
+            if (command.equals("종료")) {
+                System.out.println("명언 앱을 종료합니다.");
+                break;
+            } else if (command.equals("등록")) {
 
                 System.out.print("명언 : ");
                 sc.nextLine();
