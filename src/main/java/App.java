@@ -1,16 +1,16 @@
+import java.util.*;
 import java.util.Scanner;
 
 public class App {
 
     private int lastId = 0;
-    private int wiseSayingSize = 0;
-    private final WiseSaying[] wiseSayingList = new WiseSaying[3];
+    private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     public void run() {
 
-        // 테스트 명언 데이터 1
-        add("명언은 시간을 할 수 있습니다.", "모두");
+        add("나의 멋진 우주여 안녕", "윤하");
+        add("Dearest, darling, my universe", "아이유");
 
         System.out.println("== 명언 앱 ==");
 
@@ -36,8 +36,11 @@ public class App {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        for(int i = 0; i < wiseSayingSize; i++) {
-            WiseSaying wiseSaying = wiseSayingList[i];
+        ArrayList<WiseSaying> reversedList = new ArrayList<>(wiseSayingList);
+        Collections.reverse(reversedList);
+
+        for (WiseSaying wiseSaying : reversedList) {
+
             System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
         }
     }
@@ -58,6 +61,6 @@ public class App {
     public void add(String content, String author) {
 
         WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
-        wiseSayingList[wiseSayingSize++] = wiseSaying;
+        wiseSayingList.add(wiseSaying);
     }
 }
