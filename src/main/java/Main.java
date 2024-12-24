@@ -18,6 +18,8 @@ class  App {
         String[] contentList = new String[3];
         String[] authorList = new String[3];
 
+        WiseSaying wiseSaying = new WiseSaying();
+
         while (true) {
 
             System.out.print("명령) ");
@@ -29,21 +31,28 @@ class  App {
             } else if (command.equals("등록")) {
 
                 System.out.print("명언 : ");
-                contentList[lastNo] = sc.nextLine();
+                String content = sc.nextLine();
 
                 System.out.print("작가 : ");
-                authorList[lastNo] = sc.nextLine();
+                String author = sc.nextLine();
 
-                System.out.println("%d번 명언이 등록되었습니다.".formatted(++lastNo));
+                wiseSaying.id = ++lastNo;
+                wiseSaying.content = content;
+                wiseSaying.author = author;
+
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(lastNo));
             } else if(command.equals("목록")) {
 
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-
-                for(int i = 2; i >= 0; i--) {
-                    System.out.println("%d / %s / %s".formatted(i, authorList[i], authorList[i]));
-                }
+                System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
             }
         }
     }
+}
+
+class WiseSaying {
+    int id;
+    String content;
+    String author;
 }
