@@ -19,12 +19,7 @@ class  App {
         Scanner sc = new Scanner(System.in);
 
         // 테스트 명언 데이터 1
-        WiseSaying wiseSayingTest = new WiseSaying();
-        wiseSayingTest.id = ++lastId;
-        wiseSayingTest.content = "명언은 시간을 할 수 있습니다.";
-        wiseSayingTest.author = "모두";
-
-        wiseSayingList[wiseSayingSize++] = wiseSayingTest;
+        add("명언은 시간을 할 수 있습니다.", "모두");
 
         System.out.println("== 명언 앱 ==");
 
@@ -62,12 +57,7 @@ class  App {
 
     public void add(String content, String author) {
 
-        WiseSaying wiseSaying = new WiseSaying();
-
-        wiseSaying.id = ++lastId;
-        wiseSaying.content = content;
-        wiseSaying.author = author;
-
+        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
         wiseSayingList[wiseSayingSize++] = wiseSaying;
     }
 }
@@ -76,4 +66,10 @@ class WiseSaying {
     int id;
     String content;
     String author;
+
+    WiseSaying(int id, String content, String author) {
+        this.id = id;
+        this.content = content;
+        this.author = author;
+    }
 }
