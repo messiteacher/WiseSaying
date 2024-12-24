@@ -40,8 +40,8 @@ class  App {
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
 
-                for(int i = 0; i < 3; i++) {
-                    System.out.println("%d / %s / %s".formatted(lastNo, authorList[i], authorList[i]));
+                for(int i = 2; i >= 0; i--) {
+                    System.out.println("%d / %s / %s".formatted(i, authorList[i], authorList[i]));
                 }
             }
         }
