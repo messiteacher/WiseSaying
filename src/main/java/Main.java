@@ -12,7 +12,7 @@ class  App {
 
     private int lastId = 0;
     private int wiseSayingSize = 0;
-    private WiseSaying[] wiseSayingList = new WiseSaying[3];
+    private final WiseSaying[] wiseSayingList = new WiseSaying[3];
 
     public void run() {
 
