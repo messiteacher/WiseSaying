@@ -10,9 +10,9 @@ public class Main {
 
 class  App {
 
-    int lastId = 0;
-    int wiseSayingSize = 0;
-    WiseSaying[] wiseSayingList = new WiseSaying[3];
+    private int lastId = 0;
+    private int wiseSayingSize = 0;
+    private WiseSaying[] wiseSayingList = new WiseSaying[3];
 
     public void run() {
 
@@ -49,7 +49,7 @@ class  App {
 
                 for(int i = 0; i < wiseSayingSize; i++) {
                     WiseSaying wiseSaying = wiseSayingList[i];
-                    System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+                    System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
                 }
             }
         }
@@ -63,13 +63,26 @@ class  App {
 }
 
 class WiseSaying {
-    int id;
-    String content;
-    String author;
+
+    private int id;
+    private String content;
+    private String author;
 
     WiseSaying(int id, String content, String author) {
         this.id = id;
         this.content = content;
         this.author = author;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public String getAuthor() {
+        return author;
     }
 }
