@@ -15,8 +15,8 @@ class  App {
 
         System.out.println("== 명언 앱 ==");
         int lastNo = 0;
-        String content = "";
-        String author = "";
+        String[] contentList = new String[3];
+        String[] authorList = new String[3];
 
         while (true) {
 
@@ -29,17 +29,20 @@ class  App {
             } else if (command.equals("등록")) {
 
                 System.out.print("명언 : ");
-                content = sc.nextLine();
+                contentList[lastNo] = sc.nextLine();
 
                 System.out.print("작가 : ");
-                author = sc.nextLine();
+                authorList[lastNo] = sc.nextLine();
 
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(++lastNo));
             } else if(command.equals("목록")) {
 
                 System.out.println("번호 / 작가 / 명언");
                 System.out.println("----------------------");
-                System.out.println("%d / %s / %s".formatted(lastNo, author, content));
+
+                for(int i = 0; i < 3; i++) {
+                    System.out.println("%d / %s / %s".formatted(lastNo, authorList[i], authorList[i]));
+                }
             }
         }
     }
