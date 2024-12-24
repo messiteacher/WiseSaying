@@ -27,8 +27,14 @@ public class App {
                 writeWiseSaying();
             } else if(command.equals("목록")) {
                 printWiseSayingList();
+            } else if(command.startsWith("삭제?")) {
+                deleteWiseSaying();
             }
         }
+    }
+
+    private void deleteWiseSaying() {
+        System.out.println("삭제");
     }
 
     private void printWiseSayingList() {
