@@ -14,7 +14,7 @@ class  App {
         Scanner sc = new Scanner(System.in);
 
         System.out.println("== 명언 앱 ==");
-        int lastNo = 1;
+        int lastNo = 0;
 
         while (true) {
 
@@ -32,8 +32,7 @@ class  App {
                 System.out.print("작가 : ");
                 sc.nextLine();
 
-                System.out.println(lastNo + "번 명언이 등록되었습니다.");
-                lastNo++;
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(++lastNo));
             }
         }
     }
