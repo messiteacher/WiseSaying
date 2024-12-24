@@ -11,13 +11,13 @@ public class Test {
 
         // index로 지우는 방법
         strings.remove(0);
-        for(String s : strings) {
+        for (String s : strings) {
             System.out.println(s);
         }
 
         // 값으로 지우는 법
         strings.remove("Java");
-        for(String s : strings) {
+        for (String s : strings) {
             System.out.println(s);
         }
 
@@ -30,8 +30,9 @@ public class Test {
 //        wiseSayings.remove(0);
         wiseSayings.remove(w1);
 
-        for(WiseSaying ws : wiseSayings) {
+        for (WiseSaying ws : wiseSayings) {
             System.out.println(ws.getContent());
             System.out.println(ws.getAuthor());
         }
+    }
 }
