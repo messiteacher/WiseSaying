@@ -32,12 +32,8 @@ public class App {
                 String strId = command.substring(6);
                 int id = Integer.parseInt(strId);
 
-                boolean result = deleteWiseSaying(id);
-                if (result) {
-                    System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
-                } else {
-                    System.out.println("%d번 명언은 존재하지 않습니다.".formatted(id));
-                }
+                deleteWiseSaying(id);
+
             } else if (command.startsWith("수정?id=")) {
 
                 String strId = command.substring(6);
@@ -82,17 +78,16 @@ public class App {
         System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
-    private boolean deleteWiseSaying(int targetId) {
+    private void deleteWiseSaying(int targetId) {
 
-        for (WiseSaying wiseSaying : wiseSayingList) {
+        WiseSaying wiseSaying = findWiseSaying(targetId);
 
-            if (wiseSaying.getId() == targetId) {
-                wiseSayingList.remove(wiseSaying);
-                return true;
-            }
+        if (wiseSaying == null) {
+            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
         }
 
-        return false;
+        wiseSayingList.remove(wiseSaying);
+        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
     }
 
     private void printWiseSayingList() {
