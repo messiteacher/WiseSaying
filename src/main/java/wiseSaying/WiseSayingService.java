@@ -4,41 +4,34 @@ import java.util.ArrayList;
 
 public class WiseSayingService {
 
-    private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
-    private int lastId = 0;
+    private final WiseSayingRepository wiseSayingRepository;
+
+    public WiseSayingService(WiseSayingRepository wiseSayingRepository) {
+        this.wiseSayingRepository = wiseSayingRepository;
+    }
 
     public WiseSaying findById(int targetId) {
-
-        for (WiseSaying wiseSaying : wiseSayingList) {
-            if (wiseSaying.getId() == targetId) {
-                return wiseSaying;
-            }
-        }
-
-        return null; // 자바에서 null은 객체가 없음을 의미
+        return wiseSayingRepository.findById(targetId);
     }
 
     public void update(WiseSaying wiseSaying, String newContent, String newAuthor) {
 
         wiseSaying.setContent(newContent);
         wiseSaying.setAuthor(newAuthor);
+
+        wiseSayingRepository.update(wiseSaying);
     }
 
     // 무언가를 저장하는 함수(메서드) 저장된 것을 다시 리턴하는 것이 관례
     public WiseSaying add(String content, String author) {
-
-        int id = ++lastId;
-        WiseSaying wiseSaying = new WiseSaying(id, content, author);
-        wiseSayingList.add(wiseSaying);
-
-        return wiseSaying;
+        return wiseSayingRepository.add(content, author);
     }
 
     public ArrayList<WiseSaying> findAll() {
-        return wiseSayingList;
+        return wiseSayingRepository.findAll();
     }
 
     public void remove(WiseSaying wiseSaying) {
-        wiseSayingList.remove(wiseSaying);
+        wiseSayingRepository.remove(wiseSaying);
     }
 }

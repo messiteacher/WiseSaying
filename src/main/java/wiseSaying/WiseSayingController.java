@@ -11,7 +11,7 @@ public class WiseSayingController {
 
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
-        this.wiseSayingService = new WiseSayingService();
+        this.wiseSayingService = new WiseSayingService(new WiseSayingRepository());
     }
 
     public void updateWiseSaying(int targetId) {
