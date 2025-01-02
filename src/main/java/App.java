@@ -84,6 +84,7 @@ public class App {
 
         if (wiseSaying == null) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
+            return ;
         }
 
         wiseSayingList.remove(wiseSaying);
