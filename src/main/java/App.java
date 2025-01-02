@@ -18,8 +18,7 @@ public class App {
 
     public void run() {
 
-        wiseSayingController.add("나의 멋진 우주여 안녕", "윤하");
-        wiseSayingController.add("Dearest, darling, my universe", "아이유");
+        wiseSayingController.makeTestData();
 
         System.out.println("== 명언 앱 ==");
 
@@ -33,7 +32,7 @@ public class App {
                 systemController.exit();
                 break;
             } else if (command.equals("등록")) {
-//                wiseSayingController.writeWiseSaying();
+                wiseSayingController.writeWiseSaying();
             } else if(command.equals("목록")) {
                 wiseSayingController.printWiseSayingList();
             } else if(command.startsWith("삭제?id=")) {
@@ -41,7 +40,7 @@ public class App {
                 String strId = command.substring(6);
                 int id = Integer.parseInt(strId);
 
-//                wiseSayingController.deleteWiseSaying(id);
+                wiseSayingController.deleteWiseSaying(id);
 
             } else if (command.startsWith("수정?id=")) {
 
