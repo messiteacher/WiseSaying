@@ -16,7 +16,7 @@ public class WiseSayingController {
 
     public void updateWiseSaying(int targetId) {
 
-        WiseSaying wiseSaying = wiseSayingService.findById(targetId);
+        WiseSaying wiseSaying = wiseSayingService.getItem(targetId);
 
         if (wiseSaying == null) {
 
@@ -31,13 +31,13 @@ public class WiseSayingController {
         System.out.print("작가 : ");
         String newAuthor = sc.nextLine();
 
-        wiseSayingService.update(wiseSaying, newContent, newAuthor);
+        wiseSayingService.modify(wiseSaying, newContent, newAuthor);
         System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
     public void deleteWiseSaying(int targetId) {
 
-        WiseSaying wiseSaying = wiseSayingService.findById(targetId);
+        WiseSaying wiseSaying = wiseSayingService.getItem(targetId);
 
         if (wiseSaying == null) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
@@ -53,7 +53,7 @@ public class WiseSayingController {
         System.out.println("번호 / 작가 / 명언");
         System.out.println("----------------------");
 
-        ArrayList<WiseSaying> originalList = wiseSayingService.findAll();
+        ArrayList<WiseSaying> originalList = wiseSayingService.getItems();
         ArrayList<WiseSaying> reversedList = new ArrayList<>(originalList);
         Collections.reverse(reversedList);
 
@@ -70,13 +70,13 @@ public class WiseSayingController {
         System.out.print("작가 : ");
         String author = sc.nextLine();
 
-        WiseSaying wiseSaying = wiseSayingService.add(content, author);
+        WiseSaying wiseSaying = wiseSayingService.write(content, author);
         System.out.println("%d번 명언이 등록되었습니다.".formatted(wiseSaying.getId()));
     }
 
     public void makeTestData() {
 
-        wiseSayingService.add("나의 멋진 우주여 안녕", "윤하");
-        wiseSayingService.add("Dearest, darling, my universe", "아이유");
+        wiseSayingService.write("나의 멋진 우주여 안녕", "윤하");
+        wiseSayingService.write("Dearest, darling, my universe", "아이유");
     }
 }

@@ -10,11 +10,11 @@ public class WiseSayingService {
         this.wiseSayingRepository = wiseSayingRepository;
     }
 
-    public WiseSaying findById(int targetId) {
+    public WiseSaying getItem(int targetId) {
         return wiseSayingRepository.findById(targetId);
     }
 
-    public void update(WiseSaying wiseSaying, String newContent, String newAuthor) {
+    public void modify(WiseSaying wiseSaying, String newContent, String newAuthor) {
 
         wiseSaying.setContent(newContent);
         wiseSaying.setAuthor(newAuthor);
@@ -23,11 +23,11 @@ public class WiseSayingService {
     }
 
     // 무언가를 저장하는 함수(메서드) 저장된 것을 다시 리턴하는 것이 관례
-    public WiseSaying add(String content, String author) {
+    public WiseSaying write(String content, String author) {
         return wiseSayingRepository.add(content, author);
     }
 
-    public ArrayList<WiseSaying> findAll() {
+    public ArrayList<WiseSaying> getItems() {
         return wiseSayingRepository.findAll();
     }
 
