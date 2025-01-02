@@ -64,11 +64,22 @@ public class App {
         WiseSaying wiseSaying = findWiseSaying(targetId);
 
         if (wiseSaying == null) {
+
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
             return ;
-        } else {
-
         }
+
+        System.out.println("명언(기존) : %s".formatted(wiseSaying.getContent()));
+        System.out.print("명언 : ");
+        String newContent = sc.nextLine();
+        System.out.println("작가(기존) : %s".formatted(wiseSaying.getAuthor()));
+        System.out.print("작가 : ");
+        String newAuthor = sc.nextLine();
+
+        wiseSaying.setContent(newContent);
+        wiseSaying.setAuthor(newAuthor);
+
+        System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
     private boolean deleteWiseSaying(int targetId) {
