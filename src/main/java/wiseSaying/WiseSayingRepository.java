@@ -2,39 +2,15 @@ package wiseSaying;
 
 import java.util.ArrayList;
 
-public class WiseSayingRepository {
+public interface WiseSayingRepository {
 
-    private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
-    private int lastId = 0;
+    WiseSaying findById(int id);
 
-    public WiseSaying findById(int targetId) {
+    WiseSaying add(String content, String author);
 
-        for (WiseSaying wiseSaying : wiseSayingList) {
-            if (wiseSaying.getId() == targetId) {
-                return wiseSaying;
-            }
-        }
+    void update(WiseSaying wiseSaying);
 
-        return null;
-    }
+    ArrayList<WiseSaying> findAll();
 
-    public WiseSaying add(String content, String author) {
-
-        int id = ++lastId;
-        WiseSaying wiseSaying = new WiseSaying(id, content, author);
-        wiseSayingList.add(wiseSaying);
-
-        return wiseSaying;
-    }
-
-    public ArrayList<WiseSaying> findAll() {
-        return wiseSayingList;
-    }
-
-    public void remove(WiseSaying wiseSaying) {
-        wiseSayingList.remove(wiseSaying);
-    }
-
-    public void update(WiseSaying wiseSaying) {
-    }
+    void remove(WiseSaying wiseSaying);
 }
