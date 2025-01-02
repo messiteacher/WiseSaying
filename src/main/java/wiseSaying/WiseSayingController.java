@@ -6,9 +6,13 @@ import java.util.Scanner;
 
 public class WiseSayingController {
 
-    private int lastId = 0;
     private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
-    Scanner sc = new Scanner(System.in);
+    private final Scanner sc = new Scanner(System.in);
+    private int lastId = 0;
+
+    public WiseSayingController(Scanner sc) {
+        sc = new Scanner(System.in);
+    }
 
     public WiseSaying findWiseSaying(int targetId) {
 
