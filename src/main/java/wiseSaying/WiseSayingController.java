@@ -8,7 +8,6 @@ public class WiseSayingController {
 
     private final WiseSayingService wiseSayingService;
     private final Scanner sc;
-    private int lastId = 0;
 
     public WiseSayingController(Scanner sc) {
         this.sc = sc;
@@ -38,49 +37,47 @@ public class WiseSayingController {
         System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
-    /*public void deleteWiseSaying(int targetId) {
+//    public void deleteWiseSaying(int targetId) {
+//
+//        WiseSaying wiseSaying = wiseSayingService.findWiseSaying(targetId);
+//
+//        if (wiseSaying == null) {
+//            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
+//            return ;
+//        }
+//
+//        wiseSayingList.remove(wiseSaying);
+//        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
+//    }
+//
+//    public void printWiseSayingList() {
+//
+//        System.out.println("번호 / 작가 / 명언");
+//        System.out.println("----------------------");
+//
+//        ArrayList<WiseSaying> reversedList = new ArrayList<>(wiseSayingList);
+//        Collections.reverse(reversedList);
+//
+//        for (WiseSaying wiseSaying : reversedList) {
+//
+//            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
+//        }
+//    }
 
-        WiseSaying wiseSaying = wiseSayingService.findWiseSaying(targetId);
-
-        if (wiseSaying == null) {
-            System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
-            return ;
-        }
-
-        wiseSayingList.remove(wiseSaying);
-        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
-    }
-
-    public void printWiseSayingList() {
-
-        System.out.println("번호 / 작가 / 명언");
-        System.out.println("----------------------");
-
-        ArrayList<WiseSaying> reversedList = new ArrayList<>(wiseSayingList);
-        Collections.reverse(reversedList);
-
-        for (WiseSaying wiseSaying : reversedList) {
-
-            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
-        }
-    }
-
-    public void writeWiseSaying() {
-
-        System.out.print("명언 : ");
-        String content = sc.nextLine();
-
-        System.out.print("작가 : ");
-        String author = sc.nextLine();
-
-        add(content, author);
-
-        System.out.println("%d번 명언이 등록되었습니다.".formatted(lastId));
-    }
-
+//    public void writeWiseSaying() {
+//
+//        System.out.print("명언 : ");
+//        String content = sc.nextLine();
+//
+//        System.out.print("작가 : ");
+//        String author = sc.nextLine();
+//
+//        add(content, author);
+//
+//        System.out.println("%d번 명언이 등록되었습니다.".formatted(lastId));
+//    }
+//
     public void add(String content, String author) {
-
-        WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
-        wiseSayingList.add(wiseSaying);
-    }*/
+        wiseSayingService.add(content, author);
+    }
 }

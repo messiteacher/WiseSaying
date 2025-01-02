@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class WiseSayingService {
 
     private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
+    private int lastId = 0;
 
     public WiseSaying findWiseSaying(int targetId) {
 
@@ -21,5 +22,12 @@ public class WiseSayingService {
 
         wiseSaying.setContent(newContent);
         wiseSaying.setAuthor(newAuthor);
+    }
+
+    public void add(String content, String author) {
+
+        int id = ++lastId;
+        WiseSaying wiseSaying = new WiseSaying(id, content, author);
+        wiseSayingList.add(wiseSaying);
     }
 }
