@@ -30,4 +30,13 @@ public class WiseSayingService {
         WiseSaying wiseSaying = new WiseSaying(id, content, author);
         wiseSayingList.add(wiseSaying);
     }
+
+    public void printList() {
+
+
+    }
+
+    public ArrayList<WiseSaying> findAll() {
+        return wiseSayingList;
+    }
 }

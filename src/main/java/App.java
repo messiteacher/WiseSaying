@@ -35,7 +35,7 @@ public class App {
             } else if (command.equals("등록")) {
 //                wiseSayingController.writeWiseSaying();
             } else if(command.equals("목록")) {
-//                wiseSayingController.printWiseSayingList();
+                wiseSayingController.printWiseSayingList();
             } else if(command.startsWith("삭제?id=")) {
 
                 String strId = command.substring(6);

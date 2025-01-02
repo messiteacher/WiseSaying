@@ -31,9 +31,7 @@ public class WiseSayingController {
         System.out.print("작가 : ");
         String newAuthor = sc.nextLine();
 
-        wiseSaying.setContent(newContent);
-        wiseSaying.setAuthor(newAuthor);
-
+        wiseSayingService.updateWiseSaying(wiseSaying, newContent, newAuthor);
         System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
@@ -50,19 +48,19 @@ public class WiseSayingController {
 //        System.out.println("%d번 명언이 삭제되었습니다.".formatted(targetId));
 //    }
 //
-//    public void printWiseSayingList() {
-//
-//        System.out.println("번호 / 작가 / 명언");
-//        System.out.println("----------------------");
-//
-//        ArrayList<WiseSaying> reversedList = new ArrayList<>(wiseSayingList);
-//        Collections.reverse(reversedList);
-//
-//        for (WiseSaying wiseSaying : reversedList) {
-//
-//            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
-//        }
-//    }
+    public void printWiseSayingList() {
+
+        System.out.println("번호 / 작가 / 명언");
+        System.out.println("----------------------");
+
+        ArrayList<WiseSaying> reversedList = wiseSayingService.findAll();
+        Collections.reverse(reversedList);
+
+        for (WiseSaying wiseSaying : reversedList) {
+
+            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getAuthor(), wiseSaying.getContent()));
+        }
+    }
 
 //    public void writeWiseSaying() {
 //
