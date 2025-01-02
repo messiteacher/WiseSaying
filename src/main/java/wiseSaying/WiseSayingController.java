@@ -6,28 +6,18 @@ import java.util.Scanner;
 
 public class WiseSayingController {
 
-    private final ArrayList<WiseSaying> wiseSayingList = new ArrayList<>();
-    private final Scanner sc = new Scanner(System.in);
+    private final WiseSayingService wiseSayingService;
+    private final Scanner sc;
     private int lastId = 0;
 
     public WiseSayingController(Scanner sc) {
-        sc = new Scanner(System.in);
-    }
-
-    public WiseSaying findWiseSaying(int targetId) {
-
-        for (WiseSaying wiseSaying : wiseSayingList) {
-            if (wiseSaying.getId() == targetId) {
-                return wiseSaying;
-            }
-        }
-
-        return null; // 자바에서 null은 객체가 없음을 의미
+        this.sc = sc;
+        this.wiseSayingService = new WiseSayingService();
     }
 
     public void updateWiseSaying(int targetId) {
 
-        WiseSaying wiseSaying = findWiseSaying(targetId);
+        WiseSaying wiseSaying = wiseSayingService.findWiseSaying(targetId);
 
         if (wiseSaying == null) {
 
@@ -48,9 +38,9 @@ public class WiseSayingController {
         System.out.println("%d번 명언이 수정되었습니다.".formatted(targetId));
     }
 
-    public void deleteWiseSaying(int targetId) {
+    /*public void deleteWiseSaying(int targetId) {
 
-        WiseSaying wiseSaying = findWiseSaying(targetId);
+        WiseSaying wiseSaying = wiseSayingService.findWiseSaying(targetId);
 
         if (wiseSaying == null) {
             System.out.println("%d번 명언은 존재하지 않습니다.".formatted(targetId));
@@ -92,5 +82,5 @@ public class WiseSayingController {
 
         WiseSaying wiseSaying = new WiseSaying(++lastId, content, author);
         wiseSayingList.add(wiseSaying);
-    }
+    }*/
 }
